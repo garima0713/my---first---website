@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { @apply bg-paper font-sans text-ink antialiased; }
+:focus-visible { outline: 3px solid #0E5A60; outline-offset: 3px; border-radius: 4px; }
+
+/* The one orchestrated moment: the hero browser frame draws its bars */
+@keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.bar { transform-origin: left; animation: grow .9s cubic-bezier(.2,.7,.2,1) both; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .bar { animation: none; }
+  * { transition: none !important; }
+}
